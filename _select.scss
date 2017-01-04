@@ -1,0 +1,121 @@
+// ==========================================================================
+// SELECT
+// ==========================================================================
+/*doc
+---
+title: Selects
+name: 5_selects
+parent: 1_forms
+category: forms
+---
+
+```html_example
+<form class="">
+    <select class="select">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+    </select>
+</form>
+```
+*/
+
+.select {
+    @include font-scale(small);
+    @include font-family(type-config(headings-family));
+    color: black;
+    background-color: white;
+    border: 1px solid palette(grey);
+    border-radius: rem-calc(2);
+    padding: rem-calc(11 8 8);
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    &::disabled {
+        background-color: palette('grey', 'xlight');
+    }
+}
+
+/*doc
+---
+title: Styled selects
+name: 5_selects_styled
+category: forms
+parent: 5_selects
+---
+
+Can use a replacement overlay to style selects nicely
+
+```html_example
+<form class="">
+    <div class="select__wrapper">
+        <select class="select">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <b class="icon icon--arrow-down icon--black icon--mini select__icon" data-grunticon-embed></b>
+    </div>
+</form>
+```
+*/
+
+.select__wrapper {
+    position: relative;
+    // border: 1px solid palette('grey');
+    // border-radius: rem-calc(2);
+    background-color: white;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+
+    &::focus {
+        border-color: green;
+    }
+
+    .select {
+        padding-right: rem-calc(30);
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        background-color: transparent;
+        // border: none;
+        // border-radius: 0;
+        border: 1px solid palette('grey');
+        border-radius: rem-calc(2);
+
+        // [1] For some reason Autoprefixr doesnt support the `appearance` property
+        -webkit-appearance: none; /*[1]*/
+        -moz-appearance: none; /*[1]*/
+        appearance: none; /*[1]*/
+
+        &:focus {
+            // background-color: transparentize(palette('grey', 'mid'), 0.9);
+            border-color: palette(teal);
+        }
+
+        &:disabled {
+            background-color: palette('grey', 'xlight');
+        }
+    }
+
+    .select::-ms-expand {
+        display: none;
+    }
+
+    .has--error & {
+        border-color: palette(error);
+    }
+}
+
+
+
+// icon
+.select__icon {
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+    right: rem-calc(15);
+    top: rem-calc(14);
+}
