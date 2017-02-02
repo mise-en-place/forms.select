@@ -1,0 +1,22 @@
+{
+  "name": "mep-forms.select",
+  "version": "1.0.0",
+  "description": "Base styling for forms select",
+  "main": "stylesheets/_select.scss",
+  "eyeglass": {
+    "needs": "^1.0.0",
+    "name": "select",
+    "exports": "eyeglass-exports.js"
+  },
+  "keywords": [
+    "eyeglass-module",
+    "sass",
+    "mise-en-place"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mise-en-place/forms.select.git"
+  },
+  "author": "Kind",
+  "license": "MIT"
+}
