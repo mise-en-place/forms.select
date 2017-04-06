@@ -20,9 +20,9 @@ category: forms
 ```
 */
 
-@import "tool-palette";
-@import "tool-font-scale";
-@import "tool-rem-calc";
+@import "~mep-tools.palette";
+@import "~mep-tools.font-scale";
+@import "~mep-tools.rem-calc";
 
 .select {
     @include font-scale(small);
